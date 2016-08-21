@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <%
     request.setCharacterEncoding("utf-8");
-    String message = request.getParameter("message"); //<jsp:setProperty 사용 시 적을 필요 없다.
+    String message = request.getParameter("message"); //<jsp:setProperty 사용 시 이 구문을 사용할 필요 없다.
     %>
     <jsp:useBean id="my" class="pack.Para1Class"/>
 <!DOCTYPE html>

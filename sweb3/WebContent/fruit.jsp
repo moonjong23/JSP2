@@ -4,7 +4,7 @@
     request.setCharacterEncoding("utf-8");
     %>
     <jsp:useBean id="fruit" class="pack.fruitBean" />
-    <jsp:setProperty property="*" name="fruit" />
+    <jsp:setProperty property="*" name="fruit" /> <!-- name,danga,discount form의 모든 값을 set한다.-->
 
 <!DOCTYPE html>
 <html>

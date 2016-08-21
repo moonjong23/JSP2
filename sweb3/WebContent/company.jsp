@@ -23,26 +23,27 @@
 <tr><td>사번</td><td>직원명</td><td>직급</td><td>성별</td></tr>
 <%
 	ArrayList<companyDto> list = CPDB.getData();
-	for(companyDto s : list){ %>
+	for(companyDto s : list){ 
+%>
 		<tr>
 		<td><%=s.getSawonNo() %></td>
 		<td><%=s.getSawonName() %></td>
 		<td><%=s.getSawonJik() %></td>
-		<% 
+<% 
 		if(s.getSawonGen().equals("남")){
-		%>
-		<td style="color:blue;"><%=s.getSawonGen() %></td>
-		<%
+%>
+			<td style="color:blue;"><%=s.getSawonGen() %></td>
+<%
 		}else{
-		%>
-		<td style="color:yellow;"><%=s.getSawonGen() %></td>	
-		<%
+%>
+			<td style="color:yellow;"><%=s.getSawonGen() %></td>	
+<%
 		}
-		%>
+%>
 		</tr>
-		<%
+<%
 	} 
-		%>
+%>
 </table>
 </body>
 </html>
