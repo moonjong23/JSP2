@@ -10,7 +10,6 @@ public class ConnBean {
 	public ConnBean() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root" , "123");
 			
 		} catch (Exception e) {
 			System.out.println("db 연결 실패: " + e);
@@ -21,6 +20,7 @@ public class ConnBean {
 		ArrayList<SangpumDto> list = new ArrayList<>();
 		try {
 			String sql = "select * from sangdata";
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root" , "123");
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()){
