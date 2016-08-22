@@ -21,7 +21,7 @@ function funcUp(){
 }
 function funcDel(){
 	//alert("Del");
-	var code=prompt("수정할 코드 입력");
+	var code=prompt("삭제할 코드 입력");
 	if(code != "" && code !=null){
 		if(confirm("정말 삭제할까요?") == true){
 		location.href="dbtest2_del.jsp?code=" + code;

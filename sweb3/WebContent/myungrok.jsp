@@ -2,30 +2,56 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="myungrokData" class="pack.myungrokData" scope="page"/>
+
+<jsp:useBean id="myungrokdata" class="pack.myungrokData" scope="page"/>
     
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>방명록 만들기</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+function funcUp(){
+	var code=prompt("수정할 코드 입력")
+	if(code != "" && code!=null){
+	location.href="myungrokUplist.jsp?code=" + code;		
+	}
+}
+
+function funcWrite(){
+	//var code = $("#code").text();
+	//alert(code);
+	location.href="myungrokWritelist.jsp";
+}
+
+function funcDel(){
+	var code=prompt("삭제할 코드 입력.");
+	if(code != "" && code !=null){
+		if(confirm("정말 삭제할까요?") == true){
+			location.href="myungrokDel.jsp?code=" + code;
+		}
+	}
+	
+}
+</script>
 </head>
 <body>
 <h1>**방명록 만들기**</h1>
 <hr/>
-<a href="#"><i style="font-size:30px;">글 쓰기!</i></a>
+<a href="javascript:funcWrite()"><i style="font-size:30px;">글 쓰기!</i></a>
 <br><br>
 <table border='1'>
 	<tr>
 		<th>코드</th><th>작성자</th><th>제목</th><th>내용</th>
 	</tr>
 <%
-	ArrayList<myungrokDto> list= myungrokData.getDataAll();
+	ArrayList<myungrokDto> list= myungrokdata.getDataAll();
 	for(myungrokDto d : list){
 %>
 	<tr>
-		<td><%=d.getCode() %></td>
-		<td><%=d.getName() %></td>
+		<td><a href="javascript:funcDel()"><%=d.getCode() %></a></td>
+		<td><a href="javascript:funcUp()"><%=d.getName() %></a></td>
 		<td><%=d.getSubject() %></td>
 		<td><%=d.getContent() %></td>
 	</tr>
