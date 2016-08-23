@@ -37,7 +37,8 @@ $(document).ready(function(){
 <h1><b>내용을 입력하세요.</b></h1>
 <br>
 <form name="frm" id="frm" method="post" action="myungrokWrite.jsp">
-	코드: <input type="hidden" name="code" id="code">
+	코드는 최대 번호로 자동 입력됩니다.<input type="hidden" name="code" id="code">
+	<br/><br/>
 <table border='1'>
 	<tr><td>작성자: <input type="text" name="name" id="name"></td></tr>
 	<tr><td>제목: <input type="text" name="subject" id="subject"></td></tr>

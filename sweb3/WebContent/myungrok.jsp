@@ -12,28 +12,23 @@
 <title>방명록 만들기</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
-function funcUp(){
-	var code=prompt("수정할 코드 입력")
-	if(code != "" && code!=null){
-	location.href="myungrokUplist.jsp?code=" + code;		
-	}
-}
-
 function funcWrite(){
 	//var code = $("#code").text();
 	//alert(code);
 	location.href="myungrokWritelist.jsp";
 }
 
-function funcDel(){
-	var code=prompt("삭제할 코드 입력.");
-	if(code != "" && code !=null){
-		if(confirm("정말 삭제할까요?") == true){
-			location.href="myungrokDel.jsp?code=" + code;
-		}
-	}
-	
+function funcUp(name){
+	alert(name);
+	location.href="myungrokUplist.jsp?name=" + name;
 }
+
+function funcDel(code){
+	//alert(code);
+	if(confirm("정말 삭제하시겠습니까?") == true)
+	location.href="myungrokDel.jsp?code=" + code;
+}
+
 </script>
 </head>
 <body>
@@ -50,8 +45,8 @@ function funcDel(){
 	for(myungrokDto d : list){
 %>
 	<tr>
-		<td><a href="javascript:funcDel()"><%=d.getCode() %></a></td>
-		<td><a href="javascript:funcUp()"><%=d.getName() %></a></td>
+		<td><a href="javascript:funcDel(<%=d.getCode() %>)"><%=d.getCode() %></a></td>
+		<td><a href="javascript:funcUp('<%=d.getName()%>')"><%=d.getName()%></a></td>
 		<td><%=d.getSubject() %></td>
 		<td><%=d.getContent() %></td>
 	</tr>
